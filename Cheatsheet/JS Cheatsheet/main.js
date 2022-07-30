@@ -67,6 +67,22 @@ const numbers = [1, 2, 3, 4, 5];
 const fruits = ['apples', 'oranges', 'pears', 'grapes'];
 console.log(numbers, fruit);
 
+// Cara lain buat array
+var courses = new Array('HTML', 'CSS', 'JS')
+// cara lain buat array
+var courses = new Array(3);
+courses[0] = 'HTML';
+courses[1] = 'CSS';
+courses[2] = 'JS';
+// Atau kalau mau dinamic bikin array kosong kemudian diisi :
+var courses = new Array();
+courses[0] = 'HTML';
+courses[1] = 'CSS';
+courses[2] = 'JS';
+
+// lenght array
+console.log(courses.length);
+
 // Get one value - Arrays start at 0
 console.log(fruits[1]);
 
@@ -88,7 +104,14 @@ console.log(Array.isArray(fruits));
 // // Get index
 console.log(fruits.indexOf('oranges'));
 
+// Concat / Join Array / gabungin 2 array
+var concat = fruits.concat(courses);
 
+// Associative Arrays
+var person = [];
+person["name"] = 'Kohn';
+person["age"] = 46;
+console.log(person['age']);
 
 // OBJECT LITERALS
 const person = {
@@ -138,7 +161,10 @@ const todos = [
 // Get specific object value
 console.log(todos[1].text);
 
-
+// Math, built in method aritmatika cari info lebih lanjut di internet "math javascript"
+var n = 144;
+var answer = Math.sqrt(n);
+console.log(Math.PI);
 
 // Format as JSON
 console.log(JSON.stringify(todos));
@@ -245,6 +271,19 @@ function greet(greeting = 'Hello', name) {
 // ARROW FUNCTIONS
 const greet = (greeting = 'Hello', name = 'There') => `${greeting} ${name}`;
 console.log(greet('Hi'));
+
+// Date Object
+// jalankan setelah 3 detik
+function myAlert() {
+  alert('Hi');
+}
+setInterval(myAlert, 3000);
+
+// waktu sekarang
+var d = new Date();
+
+// ambil waktu dalam menit, bisa juga yang lain cek internet
+console.log(d.getMinutes());
 
 
 // OOP
