@@ -15,33 +15,33 @@ console.log(document.forms[0]); // tampilin forms dalam hal ini yang pertama
 console.log(document.links); // tampilin links
 console.log(document.images); // tampilin images
 
-GETELEMENTBYID //
+// GETELEMENTBYID 
 console.log(document.getElementById('header-title'));
 var headerTitle = document.getElementById('header-title'); // dimasukkan jadi variable biar mudah lebih pendek
 var header = document.getElementById('main-header');
 console.log(headerTitle);
 headerTitle.textContent = 'Hello'; // .textContent nampilkan text sesuai dengan isi .html
 headerTitle.innerText = 'Goodbye'; // .innerText nampilin text sesuai dengan tampilan akhir
-console.log(headerTitle.innerText);
-headerTitle.innerHTML = '<h3>Hello</h3>'; // inner HTML memasukkan isinya kedalam existing jadi h3 ada di dalam h1
-header.style.borderBottom = 'solid 3px #000';
+console.log(headerTitle.innerText); // untuk menulis isi text ke dalam console
+headerTitle.innerHTML = '<h3>Hello</h3>'; // mengganti tulisan dengan <h3>Hello</h3> sebenarnya bukan mengganti tetapi memasukkan di dalam H1
+header.style.borderBottom = 'solid 3px #000'; // ganti ukuran border bawah
 
 // GETELEMENTSBYCLASSNAME 
 var items = document.getElementsByClassName('list-group-item'); // pilih berdasarkan class
-console.log(items);
-console.log(items[1]);
-items[1].textContent = 'Hello 2';
-items[1].style.fontWeight = 'bold';
-items[1].style.backgroundColor = 'yellow';
+console.log(items); // [li.list-group-item,li.list-group-item, li.list-group-item, li.list-group-item] __proto__: HTML Collection
+console.log(items[1]); // <li class="list-group-item">Item 2</li>
+items[1].textContent = 'Hello 2'; // ganti content Item 2 menjadi hello 2
+items[1].style.fontWeight = 'bold'; // membuat jadi bold
+items[1].style.backgroundColor = 'yellow'; // ganti warna backround
 
 // Gives error 
-//items.style.backgroundColor = '#f4f4f4';
-
+//items.style.backgroundColor = '#f4f4f4';  
+// diatas ini gak bisa karena bentuknya array html collection harus di loop satu persatu seperti dibawah:
 for (var i = 0; i < items.length; i++) {
   items[i].style.backgroundColor = '#f4f4f4';
 }
 
-GETELEMENTSBYTAGNAME //
+// GETELEMENTSBYTAGNAME // ambil berdasarkan nama tag html (<p>, <a>, <div>, <span>, <H1>, <Body>, <Ul> dll)
 var li = document.getElementsByTagName('li');
 console.log(li);
 console.log(li[1]);
@@ -56,34 +56,35 @@ for (var i = 0; i < li.length; i++) {
   li[i].style.backgroundColor = '#f4f4f4';
 }
 
-QUERYSELECTOR //
+// QUERYSELECTOR //
 var header = document.querySelector('#main-header');
 header.style.borderBottom = 'solid 4px #ccc';
 
 var input = document.querySelector('input');
-input.value = 'Hello World'
+input.value = 'Hello World' // mengisi input dengan 'Hello World'
 
-var submit = document.querySelector('input[type="submit"]');
-submit.value = "SEND"
+var submit = document.querySelector('input[type="submit"]'); // memilih tombol submit 
+submit.value = "SEND" // tulisan tombol submit diganti dengan "Send"
 
 var item = document.querySelector('.list-group-item');
-item.style.color = 'red';
+item.style.color = 'red'; // hanya merubah warna item pertama dalam class tersebut
 
-var lastItem = document.querySelector('.list-group-item:last-child');
+var lastItem = document.querySelector('.list-group-item:last-child'); // memilih item terakhir dalam class
 lastItem.style.color = 'blue';
 
-var secondItem = document.querySelector('.list-group-item:nth-child(2)');
+var secondItem = document.querySelector('.list-group-item:nth-child(2)'); // memilih item ke (2), kalau mau pilih keberapa tinggal ganti angkanya
 secondItem.style.color = 'coral';
 
 QUERYSELECTORALL //
-var titles = document.querySelectorAll('.title');
+var titles = document.querySelectorAll('.title'); // pilih semua yang serupa dan dijadikan array
 
 console.log(titles);
-titles[0].textContent = 'Hello';
+titles[0].textContent = 'Hello'; // untuk memanggilnya harus pakai titles[0] karen titles dalam bentuk array
 
-var odd = document.querySelectorAll('li:nth-child(odd)');
-var even = document.querySelectorAll('li:nth-child(even)');
+var odd = document.querySelectorAll('li:nth-child(odd)'); // pilih yang ganjil
+var even = document.querySelectorAll('li:nth-child(even)'); // pilih yang genap
 
+// membuat yang ganjil jadi abu muda dan genap jadi abu tua
 for (var i = 0; i < odd.length; i++) {
   odd[i].style.backgroundColor = '#f4f4f4';
   even[i].style.backgroundColor = '#ccc';
