@@ -92,49 +92,49 @@ for (var i = 0; i < odd.length; i++) {
 
 
 
-TRAVERSING THE DOM //
+// TRAVERSING THE DOM //
 var itemList = document.querySelector('#items');
-parentNode
-console.log(itemList.parentNode);
-itemList.parentNode.style.backgroundColor = '#f4f4f4';
-console.log(itemList.parentNode.parentNode.parentNode);
+// parentNode  // menargetkan satu level diatas node dari pilihan
+console.log(itemList.parentNode); // <div id="main" class ="card card-body">...</div>     //menargetkan parent node dari #items yaitu div dengan #main
+itemList.parentNode.style.backgroundColor = '#f4f4f4'; // <div id="main" class ="card card-body" style="background-color : rgb(244,244,244);">...</div> 
+console.log(itemList.parentNode.parentNode.parentNode); // <body>...</body>
 
-parentElement
+// parentElement // sama dengan parent Node
 console.log(itemList.parentElement);
 itemList.parentElement.style.backgroundColor = '#f4f4f4';
 console.log(itemList.parentElement.parentElement.parentElement);
 
-childNodes
+// childNodes // tidak direkomendasikan sebaiknya gunakan children karena text kosong jadi list kalau ada line break dll
 console.log(itemList.childNodes);
-
+// children // memilih satu level dibawah
 console.log(itemList.children);
-console.log(itemList.children[1]);
+console.log(itemList.children[1]); // memilih item kedua dari children
 itemList.children[1].style.backgroundColor = 'yellow';
 
-// FirstChild
+// FirstChild // tidak direkomendasikan
 console.log(itemList.firstChild);
-// firstElementChild
+// firstElementChild // memilih anak pertama
 console.log(itemList.firstElementChild);
 itemList.firstElementChild.textContent = 'Hello 1';
 
 
-lastChild
+// lastChild  // tidak direkomendasikan
 console.log(itemList.lastChild);
-lastElementChild
+// lastElementChild // memilih anak terakhir
 console.log(itemList.lastElementChild);
 itemList.lastElementChild.textContent = 'Hello 4';
 
-nextSibling
+// nextSibling // tidak direkomendasikan
 console.log(itemList.nextSibling);
-// nextElementSibling
+// nextElementSibling // pilih elemen lain yang seingkat
 console.log(itemList.nextElementSibling);
 
-previousSibling
+// previousSibling // tidak direkomendasikan
 console.log(itemList.previousSibling);
-previousElementSibling
+// previousElementSibling // pilih elemen lain yang setingkat
 console.log(itemList.previousElementSibling); itemList.previousElementSibling.style.color = 'green';
 
-createElement
+// createElement
 
 // Create a div
 var newDiv = document.createElement('div');
