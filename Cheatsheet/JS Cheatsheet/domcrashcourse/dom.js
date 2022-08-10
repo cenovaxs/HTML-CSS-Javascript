@@ -191,45 +191,46 @@ function buttonClick(e) {
   console.log(e.offsetX); //194 // tampilkan posisi mouse di x axis dalam element (dalam hal ini button) event listener triggered
   console.log(e.offsetY); //122 // tampilkan posisi mouse di y axis dalam element (dalam hal ini button) saat event listener triggered
 
-  console.log(e.altKey);
-  console.log(e.ctrlKey);
-  console.log(e.shiftKey);
+  console.log(e.altKey); // True apabila alt sedang dipencet saat event listener triggered
+  console.log(e.ctrlKey); // True apabila ctr sedang dipencet saat event listener triggered
+  console.log(e.shiftKey); // True apabila shift sedang dipencet saat event listener triggered
 }
 
 var button = document.getElementById('button');
 var box = document.getElementById('box');
 
-//button.addEventListener('click', runEvent);
-//button.addEventListener('dblclick', runEvent);
-//button.addEventListener('mousedown', runEvent);
-//button.addEventListener('mouseup', runEvent);
+button.addEventListener('click', runEvent); // even listener triggered saat click
+button.addEventListener('dblclick', runEvent); // even listener triggered saat double click
+button.addEventListener('mousedown', runEvent); // even listener triggered saat mouse dipencet
+button.addEventListener('mouseup', runEvent); // even listener triggered saat mouse dilepas pencetnya
 
-//box.addEventListener('mouseenter', runEvent);
-//box.addEventListener('mouseleave', runEvent);
+box.addEventListener('mouseenter', runEvent); // even listener triggered saat pointer masuk ke area box
 
-//box.addEventListener('mouseover', runEvent);
-//box.addEventListener('mouseout', runEvent);
+box.addEventListener('mouseleave', runEvent); // even listener triggered saat pointer keluar ke area box
 
-// box.addEventListener('mousemove', runEvent);
+box.addEventListener('mouseover', runEvent); // even listener triggered saat pointer masuk ke area box termasuk child element
+box.addEventListener('mouseout', runEvent); // even listener triggered saat pointer keluar ke area box termasuk child element
+
+box.addEventListener('mousemove', runEvent); // even listener triggered saat pointer bergerak di dalam area box
 
 var itemInput = document.querySelector('input[type="text"]');
 var form = document.querySelector('form');
 var select = document.querySelector('select');
 
-// itemInput.addEventListener('keydown', runEvent);
-// itemInput.addEventListener('keyup', runEvent);
-// itemInput.addEventListener('keypress', runEvent);
+itemInput.addEventListener('keydown', runEvent);
+itemInput.addEventListener('keyup', runEvent);
+itemInput.addEventListener('keypress', runEvent);
 
-// itemInput.addEventListener('focus', runEvent);
-// itemInput.addEventListener('blur', runEvent);
+itemInput.addEventListener('focus', runEvent);
+itemInput.addEventListener('blur', runEvent);
 
-// itemInput.addEventListener('cut', runEvent);
-// itemInput.addEventListener('paste', runEvent);
+itemInput.addEventListener('cut', runEvent);
+itemInput.addEventListener('paste', runEvent);
 
-// itemInput.addEventListener('input', runEvent);
+itemInput.addEventListener('input', runEvent);
 
-// select.addEventListener('change', runEvent);
-// select.addEventListener('input', runEvent);
+select.addEventListener('change', runEvent);
+select.addEventListener('input', runEvent);
 
 form.addEventListener('submit', runEvent);
 
@@ -237,10 +238,10 @@ function runEvent(e) {
   e.preventDefault();
   console.log('EVENT TYPE: ' + e.type);
 
-  //console.log(e.target.value);
-  // document.getElementById('output').innerHTML = '<h3>'+e.target.value+'</h3>';
+  console.log(e.target.value);
+  document.getElementById('output').innerHTML = '<h3>' + e.target.value + '</h3>';
 
-  // output.innerHTML = '<h3>MouseX: '+e.offsetX+' </h3><h3>MouseY: '+e.offsetY+'</h3>';
+  output.innerHTML = '<h3>MouseX: ' + e.offsetX + ' </h3><h3>MouseY: ' + e.offsetY + '</h3>'; // menulis ke dalam html lokasi x dan y axis saat event triggered
 
-  // document.body.style.backgroundColor = "rgb("+e.offsetX+","+e.offsetY+", 40)";
+  document.body.style.backgroundColor = "rgb(" + e.offsetX + "," + e.offsetY + ", 40)"; // ganti warna background saat even listener triggered
 }
