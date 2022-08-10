@@ -126,71 +126,74 @@ itemList.lastElementChild.textContent = 'Hello 4';
 
 // nextSibling // tidak direkomendasikan
 console.log(itemList.nextSibling);
-// nextElementSibling // pilih elemen lain yang seingkat
+// nextElementSibling // pilih elemen lain yang seingkat berikutnya
 console.log(itemList.nextElementSibling);
 
 // previousSibling // tidak direkomendasikan
 console.log(itemList.previousSibling);
-// previousElementSibling // pilih elemen lain yang setingkat
+// previousElementSibling // pilih elemen lain yang setingkat sebelumnya
 console.log(itemList.previousElementSibling); itemList.previousElementSibling.style.color = 'green';
 
 // createElement
 
 // Create a div
 var newDiv = document.createElement('div');
+console.log(newDiv) // <div></div>
 
-// Add class
+// Add class 
 newDiv.className = 'hello';
+console.log(newDiv) // <div class="hello"></div>
 
 // Add id
 newDiv.id = 'hello1';
+console.log(newDiv) // <div class="hello" id="hello1"></div>
 
 // Add attr
 newDiv.setAttribute('title', 'Hello Div');
+console.log(newDiv) // <div class="hello" id="hello1" title="Hello Div"></div>
 
 // Create text node
-var newDivText = document.createTextNode('Hello World');
+var newDivText = document.createTextNode('Hello World'); // ini buat text baru tapi belum dimasukkan
 
 // Add text to div
-newDiv.appendChild(newDivText);
+newDiv.appendChild(newDivText); // memasukkan newDivText yang ud dibuat sebelumnya ke dalam newDiv
+console.log(newDiv) // <div class="hello" id="hello1" title="Hello Div">Hello World</div>
 
 var container = document.querySelector('header .container');
 var h1 = document.querySelector('header h1');
 
-console.log(newDiv);
+newDiv.style.fontSize = '30px'; // ganti fonsize
 
-newDiv.style.fontSize = '30px';
+container.insertBefore(newDiv, h1); // masukkan ke dalam html 
 
-container.insertBefore(newDiv, h1);
+// EVENTS //
+// pertama add event listener pada button onclick="function()" bisa manual ke html, tapi dalam hal ini pake dom seperti dibawah
+var button = document.getElementById('button').addEventListener('click', buttonClick); // <button onclick="buttonClick"></button>
 
-EVENTS //
-
-var button = document.getElementById('button').addEventListener('click', buttonClick);
-
+// function dibawah akan tertriger ketika kita click button
 function buttonClick(e) {
-  //console.log('Button clicked');
-  // document.getElementById('header-title').textContent = 'Changed';
-  // document.querySelector('#main').style.backgroundColor = '#f4f4f4';
-  //console.log(e);
+  console.log('Button clicked');
+  document.getElementById('header-title').textContent = 'Changed'; // Judul berubah Changed saat di klik
+  document.querySelector('#main').style.backgroundColor = '#f4f4f4'; // ganti warna saat di klik
+  console.log(e); // MouseEvent{isTrusted: true......}.....   // e adalah event, maksudnya dia akan memberi seluruh informasi tentang semua yang dilakukan saat button click hal ini digukan buat debug
+  console.log(e.target); // <button class="btn btn-dark btn-block" id="button">Click Here</button>  // tampilkan elemen yang di klik
+  console.log(e.target.id); // button // tampilkan id yang di klik
+  console.log(e.target.className); // btn btn-dark btn-block // tampilkan seluruh class dalam bentuk string
+  console.log(e.target.classList); // (3) ["btn", "btn-dark", "btn-block", value: "btn btn-dark btn-block"].... // tampilkan seluruh class dalam bentuk array
+  var output = document.getElementById('output');
+  output.innerHTML = '<h3>' + e.target.id + '</h3>'; // hasil bisa dimasukkan ke dalam html  // simbol + + itu untuk contatenate string 
 
-  // console.log(e.target);
-  // console.log(e.target.id);
-  // console.log(e.target.className);
-  // console.log(e.target.classList);
-  // var output = document.getElementById('output');
-  // output.innerHTML = '<h3>'+e.target.id+'</h3>';
+  console.log(e.type); // click // tampilkan event listener 
 
-  // console.log(e.type);
+  console.log(e.clientX); //194 // tampilkan posisi mouse di x axis dalam browser windows saat event listener triggered
+  console.log(e.clientY); //445 // tampilkan posisi mouse di y axis dalam browser windows saat event listener triggered
 
-  //console.log(e.clientX);
-  //console.log(e.clientY);
+  console.log(e.offsetX); //194 // tampilkan posisi mouse di x axis dalam element (dalam hal ini button) event listener triggered
+  console.log(e.offsetY); //122 // tampilkan posisi mouse di y axis dalam element (dalam hal ini button) saat event listener triggered
 
-  //console.log(e.offsetX);
-  //console.log(e.offsetY);
-
-  // console.log(e.altKey);
-  // console.log(e.ctrlKey);
-  // console.log(e.shiftKey);
+  console.log(e.altKey);
+  console.log(e.ctrlKey);
+  console.log(e.shiftKey);
 }
 
 var button = document.getElementById('button');
