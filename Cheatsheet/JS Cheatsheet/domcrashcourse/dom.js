@@ -217,29 +217,29 @@ var itemInput = document.querySelector('input[type="text"]');
 var form = document.querySelector('form');
 var select = document.querySelector('select');
 
-itemInput.addEventListener('keydown', runEvent);
-itemInput.addEventListener('keyup', runEvent);
-itemInput.addEventListener('keypress', runEvent);
+itemInput.addEventListener('keydown', runEvent); // saat keyboard dipencet
+itemInput.addEventListener('keyup', runEvent); // saat keyboard dilepas
+itemInput.addEventListener('keypress', runEvent); // saat keyboard dipencet tapi hanya character (alt,shift,ctrl) tidak termasuk
 
-itemInput.addEventListener('focus', runEvent);
-itemInput.addEventListener('blur', runEvent);
+itemInput.addEventListener('focus', runEvent); // saat kita click ke dalam form/input
+itemInput.addEventListener('blur', runEvent); // saat keluar dari form/input
 
-itemInput.addEventListener('cut', runEvent);
-itemInput.addEventListener('paste', runEvent);
+itemInput.addEventListener('cut', runEvent); // saat kita cut
+itemInput.addEventListener('paste', runEvent); // saat kita paste
 
-itemInput.addEventListener('input', runEvent);
+itemInput.addEventListener('input', runEvent); // saat kita ngetik di form/input atau memilih dalam button
 
-select.addEventListener('change', runEvent);
+select.addEventListener('change', runEvent); // saat terjadi perubahan dalam input/form/button
 select.addEventListener('input', runEvent);
 
-form.addEventListener('submit', runEvent);
+form.addEventListener('submit', runEvent); // saat mengirim data keluar, secara default bakal gak keliatan di konsol
 
 function runEvent(e) {
-  e.preventDefault();
-  console.log('EVENT TYPE: ' + e.type);
+  e.preventDefault(); // menhentikan default (submit jadi tidak menghapus data saat dikirim)
+  console.log('EVENT TYPE: ' + e.type); //keydown // tulis type event listener ke console
 
-  console.log(e.target.value);
-  document.getElementById('output').innerHTML = '<h3>' + e.target.value + '</h3>';
+  console.log(e.target.value); // masukkan value (ketikan) ke dalam console
+  document.getElementById('output').innerHTML = '<h3>' + e.target.value + '</h3>'; // masukkan value (ketikan) ke dalam html
 
   output.innerHTML = '<h3>MouseX: ' + e.offsetX + ' </h3><h3>MouseY: ' + e.offsetY + '</h3>'; // menulis ke dalam html lokasi x dan y axis saat event triggered
 
