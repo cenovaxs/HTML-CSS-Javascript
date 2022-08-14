@@ -448,3 +448,6 @@ function onSubmit(e) {
     emailInput.value = '';
   }
 }
+
+// The contains() method returns true if a node is a descendant of a node.
+// The contains() method returns false if not.

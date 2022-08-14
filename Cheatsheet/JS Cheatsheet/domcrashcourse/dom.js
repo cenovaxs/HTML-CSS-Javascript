@@ -1,5 +1,5 @@
 // EXAMINE THE DOCUMENT OBJECT
-
+console.log(window); // parent object dari semua JS
 console.dir(document); // buat cek semua dom
 console.log(document.domain); // 127.0.0.1    // tampilkan nama domain saja
 console.log(document.URL); //http://127.0.0.1:5500/index.html?  // tampilkan URL penuh
