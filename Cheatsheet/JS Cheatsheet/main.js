@@ -3,9 +3,9 @@
 // LOGGING OUTPUT
 // Alert
 alert('Hello World'); // Do not use for debugging. Stops script and only strings
-console.log('Hello World');
-console.error('This is an error');
-console.warn('This is a warning');
+console.log('Hello World'); // tulisan muncul di konsole
+console.error('This is an error'); // tulisan muncul di konsole sebagai error (x warna merah)
+console.warn('This is a warning'); // tulisan muncul di konsole sebagai warn (! warna kuning)
 
 // Prompt input
 var user = prompt("Please enter your name");
@@ -37,7 +37,7 @@ const y = undefined;
 let z; // undefined
 
 // Check type
-console.log(typeof z);
+console.log(typeof z); // undefined
 
 
 // STRINGS
@@ -56,16 +56,16 @@ val = s.length;
 val = s.toUpperCase();
 val = s.toLowerCase();
 // Get sub string
-val = s.substring(0, 5);
+val = s.substring(0, 5); //Hello  //ini kyk slicing di python, ambil sebagian huruf atau kata
 // Split into array
-val = s.split('');
+val = s.split('');//'H','e','l','l,.....    //membentuk array dengan semua huruf sebagai anggotanya, ini kepakai kalau mau split string yang terpisah oleh separator contohnya: technology, IT, Sport. menjadi masing2
 
 
 
 // ARRAYS - Store multiple values in a variable
 const numbers = [1, 2, 3, 4, 5];
 const fruits = ['apples', 'oranges', 'pears', 'grapes'];
-console.log(numbers, fruit);
+console.log(numbers, fruits);
 
 // Cara lain buat array
 var courses = new Array('HTML', 'CSS', 'JS')
@@ -89,7 +89,7 @@ console.log(fruits[1]);
 // Add value
 fruits[4] = 'blueberries';
 
-// Add value using push()
+// Add value using push() // value akan berada di nomor terakhir
 fruits.push('strawberries');
 
 // Add to beginning
@@ -99,10 +99,10 @@ fruits.unshift('mangos');
 fruits.pop();
 
 // // Check if array
-console.log(Array.isArray(fruits));
+console.log(Array.isArray(fruits));//true
 
 // // Get index
-console.log(fruits.indexOf('oranges'));
+console.log(fruits.indexOf('oranges')); // sebutkan orange itu urutan ke berapa dalam array
 
 // Concat / Join Array / gabungin 2 array
 var concat = fruits.concat(courses);
@@ -111,7 +111,8 @@ var concat = fruits.concat(courses);
 var person = [];
 person["name"] = 'Kohn';
 person["age"] = 46;
-console.log(person['age']);
+console.log(person['age']);//46
+console.log(person.age);//46
 
 // OBJECT LITERALS
 const person = {
@@ -126,15 +127,15 @@ const person = {
 }
 
 // Get single value
-console.log(person.name)
+console.log(person.name)//John
 // or
-console.log(person['name'])
+console.log(person['name'])//John
 
 // Get array value
-console.log(person.hobbies[1]);
+console.log(person.hobbies[1]);//movies
 
 // Get embedded object
-console.log(person.address.city);
+console.log(person.address.city);//Boston
 
 // Add property
 person.email = 'jdoe@gmail.com';
@@ -159,7 +160,7 @@ const todos = [
 ];
 
 // Get specific object value
-console.log(todos[1].text);
+console.log(todos[1].text);//Dinner with wife
 
 // Math, built in method aritmatika cari info lebih lanjut di internet "math javascript"
 var n = 144;
@@ -167,27 +168,27 @@ var answer = Math.sqrt(n);
 console.log(Math.PI);
 
 // Format as JSON
-console.log(JSON.stringify(todos));
+console.log(JSON.stringify(todos)); // ubah array todos menjadi dalam format json
 
 
 // LOOPS
 
 // For
 for (let i = 0; i <= 10; i++) {
-  console.log(`For Loop Number: ${i}`);
+  console.log(`For Loop Number: ${i}`);// 0,1,2,3,4,5,6,7,8,9,10
 }
 
 // While
 let i = 0
 while (i <= 10) {
-  console.log(`While Loop Number: ${i}`);
+  console.log(`While Loop Number: ${i}`); // 0,1,2,3,4,5,6,7,8,9,10
   i++;
 }
 
 // do while
 var i = 20;
 do {
-  document.write(i + "<br />");
+  document.write(i + "<br />");// 20 21 22 23 24 25
   i++;
 }
 while (i <= 25);
@@ -195,7 +196,7 @@ while (i <= 25);
 // Loop Through Arrays
 // For Loop
 for (let i = 0; i < todos.length; i++) {
-  console.log(` Todo ${i + 1}: ${todos[i].text}`);
+  console.log(` Todo ${i + 1}: ${todos[i].text}`);// Todo 1 
 }
 
 // For...of Loop
@@ -449,5 +450,13 @@ function onSubmit(e) {
   }
 }
 
-// The contains() method returns true if a node is a descendant of a node.
-// The contains() method returns false if not.
+contains() // method returns true if a node is a descendant of a node.
+console.log(document.querySelector('Head').contains(document.querySelector('Header')))
+// kalau Header adalah anak/ ada di dalam Head maka true
+
+Array.from() // membuat array dari
+
+console.log(Array.from('foo'));
+// expected output: Array ["f", "o", "o"]
+console.log(Array.from([1, 2, 3], x => x + x));
+// expected output: Array [2, 4, 6]
