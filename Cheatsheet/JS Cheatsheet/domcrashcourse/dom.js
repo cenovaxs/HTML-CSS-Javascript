@@ -1,5 +1,7 @@
 // EXAMINE THE DOCUMENT OBJECT
 console.log(window); // parent object dari semua JS
+//contoh function alert(1) sebenarnya adalah window.alert(1) namun karena window adalah top level makanya gak perlu ditulis
+// contoh dari anak window yang berguna 'localStorage' untuk simpan data, 'fetch' fetch API untuk membuat HTTP request, 'document' = dom
 console.dir(document); // buat cek semua dom
 console.log(document.domain); // 127.0.0.1    // tampilkan nama domain saja
 console.log(document.URL); //http://127.0.0.1:5500/index.html?  // tampilkan URL penuh
@@ -27,7 +29,8 @@ headerTitle.innerHTML = '<h3>Hello</h3>'; // mengganti tulisan dengan <h3>Hello<
 header.style.borderBottom = 'solid 3px #000'; // ganti ukuran border bawah
 
 // GETELEMENTSBYCLASSNAME 
-var items = document.getElementsByClassName('list-group-item'); // pilih berdasarkan class
+// pilih berdasarkan class dan menjadikan HTML collection. HTML Collection tidak bisa menggunakan array method, harus diubah dulu menjadi Array
+var items = document.getElementsByClassName('list-group-item'); // pilih berdasarkan class dan menjadikan HTML collection
 console.log(items); // [li.list-group-item,li.list-group-item, li.list-group-item, li.list-group-item] __proto__: HTML Collection
 console.log(items[1]); // <li class="list-group-item">Item 2</li>
 items[1].textContent = 'Hello 2'; // ganti content Item 2 menjadi hello 2
@@ -57,6 +60,8 @@ for (var i = 0; i < li.length; i++) {
 }
 
 // QUERYSELECTOR //
+// bisa memilih apapun : "tag", ".id", "#class"
+// QuerySelector itu single sehingga meskipun di input multiple dia hanya akan mengambil yang pertama saja
 var header = document.querySelector('#main-header');
 header.style.borderBottom = 'solid 4px #ccc';
 
@@ -75,7 +80,7 @@ lastItem.style.color = 'blue';
 var secondItem = document.querySelector('.list-group-item:nth-child(2)'); // memilih item ke (2), kalau mau pilih keberapa tinggal ganti angkanya
 secondItem.style.color = 'coral';
 
-QUERYSELECTORALL //
+// QUERYSELECTORALL //
 var titles = document.querySelectorAll('.title'); // pilih semua yang serupa dan dijadikan array
 
 console.log(titles);

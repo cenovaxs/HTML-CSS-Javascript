@@ -313,12 +313,16 @@ function bornyear() {
   return 2022 - this.age;
 }
 
-// Get Birth Year
+// Prototype
+// prototype digunakan supaya function yang tidak diperlukan tidak muncul setiap function Person dipanggil karena mungkin gak diperlukan dan malah membocorkan data yang tidak diperlukan
+// Di ES6 Prototype digantikan oleh Classes
+
+// Get Birth Year Prototype  
 Person.prototype.getBirthYear = function () {
   return this.dob.getFullYear();
 }
 
-// Get Full Name
+// Get Full Name Prototype
 Person.prototype.getFullName = function () {
   return `${this.firstName} ${this.lastName}`
 }
@@ -342,7 +346,8 @@ const num = new Number(5);
 console.log(typeof num); // Shows 'Object'
 
 
-// ES6 CLASSES
+// ES6 CLASSES 
+// Classes di ES6 menggantikan function objek dan prototype di ES5
 class Person {
   constructor(firstName, lastName, dob) {
     this.firstName = firstName;
@@ -364,7 +369,7 @@ class Person {
 const person1 = new Person('John', 'Doe', '7-8-80');
 console.log(person1.getBirthYear());
 
-
+// DOM sebaiknya buka DOM.js buat yang lebih detail disini cuma summary aja
 // ELEMENT SELECTORS
 
 // Single Element Selectors
