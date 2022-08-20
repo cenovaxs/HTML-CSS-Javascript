@@ -196,18 +196,26 @@ while (i <= 25);
 // Loop Through Arrays
 // For Loop
 for (let i = 0; i < todos.length; i++) {
-  console.log(` Todo ${i + 1}: ${todos[i].text}`);// Todo 1 
+  console.log(` Todo ${i + 1}: ${todos[i].text}`);// Todo 1: "Take out trash" Todo 2: "Dinner with wife" Todo 3: "Meeting with boss"
 }
 
 // For...of Loop
 for (let todo of todos) {
-  console.log(todo.text);
+  console.log(todo.text);// Take out Trash 
+  // Dinner with wife 
+  // Meeting with boss
 }
 
 
 // HIGH ORDER ARRAY METHODS (show prototype)
 
 // forEach() - Loops through array
+todos.forEach(function (todo) {
+  console.log(todo.text);// Take out Trash 
+  // Dinner with wife 
+  // Meeting with boss
+});
+
 todos.forEach(function (todo, i, myTodos) {
   console.log(`${i + 1}: ${todo.text}`);
   console.log(myTodos);
@@ -217,15 +225,22 @@ todos.forEach(function (todo, i, myTodos) {
 const todoTextArray = todos.map(function (todo) {
   return todo.text;
 });
-
-console.log(todoTextArray);
+console.log(todoTextArray);// ["Take out Trash", "Dinner with wife", "Meeting with boss"]
 
 // filter() - Returns array based on condition
 const todo1 = todos.filter(function (todo) {
   // Return only todos where id is 1
   return todo.id === 1;
 });
+console.log(todo1[0].text);//Take out trash
 
+//chained filter and map
+const todo2 = todos.filter(function (todo) {
+  return todo.isComplete === true;
+}).map(function (todo) {
+  return todo.text;
+});
+console.log(todo2);// ['Meeting with boss']
 
 // CONDITIONALS
 
@@ -258,6 +273,17 @@ const z = color === 'red' ? 10 : 20;
 
 
 // FUNCTIONS
+function addNums(num1, num2) {
+  console.log(num1 + num2);
+}
+addNums(1, 4); // 5
+
+//default value // kalau ditulis num2 = 3 maka kalau kosong bakal defaultnya jadi 3
+function addNums(num1 = 5, num2 = 3) {
+  console.log(num1 + num2);
+}
+addNums(6); // 9  // karena num2 tidak diisi dan default value num2 adalah 3
+
 function greet(greeting = 'Hello', name) {
   if (!name) {
     // console.log(greeting);
@@ -270,6 +296,24 @@ function greet(greeting = 'Hello', name) {
 
 
 // ARROW FUNCTIONS
+const addNums = (num1 = 1, num2 = 3) => {
+  return num1 + num2;
+}
+console.log(addNums(5));//8
+
+// atau yang lebih ringkas tanpa curly braces dan return tapi hasilnya sama
+const addNums = (num1 = 1, num2 = 3) => num1 + num2;
+console.log(addNums(5));//8
+
+// kalau mau masukin console.log ke dalam arrow function
+const addNums = (num1 = 1, num2 = 3) => console.log(num1 + num2);
+addNums(5);//8
+
+//for each arrow function
+todos.forEach((todo) => console.log(todo));//{id: 1, text: 'Take out trash', isComplete: false}
+//{id: 2, text: 'Dinner with wife', isComplete: false}
+//{id: 3, text: 'Meeting with boss', isComplete: true}
+
 const greet = (greeting = 'Hello', name = 'There') => `${greeting} ${name}`;
 console.log(greet('Hi'));
 
@@ -312,6 +356,7 @@ function Person(firstName, lastName, dob) {
 function bornyear() {
   return 2022 - this.age;
 }
+// prototype ini berguna agar function dapat digunakan oleh 
 
 // Get Birth Year
 Person.prototype.getBirthYear = function () {
