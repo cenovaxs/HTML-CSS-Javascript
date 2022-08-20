@@ -17,7 +17,7 @@ console.log(document.forms[0]); // tampilin forms dalam hal ini yang pertama
 console.log(document.links); // tampilin links
 console.log(document.images); // tampilin images
 
-// GETELEMENTBYID 
+// GETELEMENTBYID // single // hanya bisa select single element kalau ada dua dia hanya memilih yang pertama
 console.log(document.getElementById('header-title'));
 var headerTitle = document.getElementById('header-title'); // dimasukkan jadi variable biar mudah lebih pendek
 var header = document.getElementById('main-header');
@@ -28,8 +28,10 @@ console.log(headerTitle.innerText); // untuk menulis isi text ke dalam console
 headerTitle.innerHTML = '<h3>Hello</h3>'; // mengganti tulisan dengan <h3>Hello</h3> sebenarnya bukan mengganti tetapi memasukkan di dalam H1
 header.style.borderBottom = 'solid 3px #000'; // ganti ukuran border bawah
 
-// GETELEMENTSBYCLASSNAME 
-// pilih berdasarkan class dan menjadikan HTML collection. HTML Collection tidak bisa menggunakan array method, harus diubah dulu menjadi Array
+// GETELEMENTSBYCLASSNAME // multiple (sebaiknya tidak digunakan)
+// pilih berdasarkan class dan menjadikan HTML collection. 
+// HTML Collection tidak bisa menggunakan array method, harus diubah dulu menjadi Array
+// bisa memilih multiple item di dalam class
 var items = document.getElementsByClassName('list-group-item'); // pilih berdasarkan class dan menjadikan HTML collection
 console.log(items); // [li.list-group-item,li.list-group-item, li.list-group-item, li.list-group-item] __proto__: HTML Collection
 console.log(items[1]); // <li class="list-group-item">Item 2</li>
@@ -44,7 +46,8 @@ for (var i = 0; i < items.length; i++) {
   items[i].style.backgroundColor = '#f4f4f4';
 }
 
-// GETELEMENTSBYTAGNAME // ambil berdasarkan nama tag html (<p>, <a>, <div>, <span>, <H1>, <Body>, <Ul> dll)
+// GETELEMENTSBYTAGNAME // multiple (sebaiknya tidak digunakan karena HTML collection)
+// ambil berdasarkan nama tag html (<p>, <a>, <div>, <span>, <H1>, <Body>, <Ul> dll)
 var li = document.getElementsByTagName('li');
 console.log(li);
 console.log(li[1]);
@@ -59,7 +62,7 @@ for (var i = 0; i < li.length; i++) {
   li[i].style.backgroundColor = '#f4f4f4';
 }
 
-// QUERYSELECTOR //
+// QUERYSELECTOR // single (recommended) 
 // bisa memilih apapun : "tag", ".id", "#class"
 // QuerySelector itu single sehingga meskipun di input multiple dia hanya akan mengambil yang pertama saja
 var header = document.querySelector('#main-header');
@@ -80,7 +83,7 @@ lastItem.style.color = 'blue';
 var secondItem = document.querySelector('.list-group-item:nth-child(2)'); // memilih item ke (2), kalau mau pilih keberapa tinggal ganti angkanya
 secondItem.style.color = 'coral';
 
-// QUERYSELECTORALL //
+// QUERYSELECTORALL // multiple (recomended buat multiple)
 var titles = document.querySelectorAll('.title'); // pilih semua yang serupa dan dijadikan array
 
 console.log(titles);
