@@ -209,7 +209,30 @@ for (let todo of todos) {
 
 // HIGH ORDER ARRAY METHODS (show prototype)
 
+const companies = [
+  { name: "Company One", category: "Finance", start: 1981, end: 2004 },
+  { name: "Company Two", category: "Retail", start: 1992, end: 2008 },
+  { name: "Company Three", category: "Auto", start: 1999, end: 2007 },
+  { name: "Company Four", category: "Retail", start: 1989, end: 2010 },
+  { name: "Company Five", category: "Technology", start: 2009, end: 2014 },
+  { name: "Company Six", category: "Finance", start: 1987, end: 2010 },
+  { name: "Company Seven", category: "Auto", start: 1986, end: 1996 },
+  { name: "Company Eight", category: "Technology", start: 2011, end: 2016 },
+  { name: "Company Nine", category: "Retail", start: 1981, end: 1989 }
+];
+
+const ages = [33, 12, 20, 16, 5, 54, 21, 44, 61, 13, 15, 45, 25, 64, 32];
+
+for (let i = 0; i < companies.length; i++) {
+  console.log(companies[i]); // {name: "Company one", category : "Finance", start : 1992, end : 2004} {name:.......}..... loop dari awal sampai akhir
+}
+
 // forEach() - Loops through array
+// format: 
+// <Array>.forEach(function(<panggil_satuan>,<panggil_iterator>,<panggil_seluruh_Array>){perintah})
+
+// Contoh:
+
 todos.forEach(function (todo) {
   console.log(todo.text);// Take out Trash 
   // Dinner with wife 
@@ -217,9 +240,12 @@ todos.forEach(function (todo) {
 });
 
 todos.forEach(function (todo, i, myTodos) {
-  console.log(`${i + 1}: ${todo.text}`);
-  console.log(myTodos);
+  console.log(`${i + 1}: ${todo.text}`);// 1 Take out Trash, 2 Dinner with wife, 3 Meeting with boss
+  console.log(myTodos);// 0: {id: 1, text: 'Take out trash', isComplete: false} 1: {id: 2, text: 'Dinner with wife', isComplete: false} 2: {id: 3, text: 'Meeting with boss', isComplete: true} Array
+  length: 3
 });
+
+
 
 // map() - Loop through and create new array
 const todoTextArray = todos.map(function (todo) {
@@ -500,6 +526,7 @@ function onSubmit(e) {
 }
 
 contains() // method returns true if a node is a descendant of a node.
+// contoh:
 console.log(document.querySelector('Head').contains(document.querySelector('Header')))
 // kalau Header adalah anak/ ada di dalam Head maka true
 

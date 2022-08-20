@@ -34,6 +34,7 @@ const todos = [
     }
 ];
 
-for (let i = 0; i < todos.length; i++) {
-    console.log(` Todo ${i + 1}: ${todos[i].text}`);// Todo 1: "Take out trash" Todo 2: "Dinner with wife" Todo 3: "Meeting with boss" 
-}
+todos.forEach(function (todo, i, myTodos) {
+    console.log(`${i + 1}: ${todo.text}`);
+    console.log(myTodos);
+});
