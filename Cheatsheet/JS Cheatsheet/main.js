@@ -356,7 +356,6 @@ function Person(firstName, lastName, dob) {
 function bornyear() {
   return 2022 - this.age;
 }
-// prototype ini berguna agar function dapat digunakan oleh 
 
 // Prototype
 // prototype digunakan supaya function yang tidak diperlukan tidak muncul setiap function Person dipanggil karena mungkin gak diperlukan dan malah membocorkan data yang tidak diperlukan
