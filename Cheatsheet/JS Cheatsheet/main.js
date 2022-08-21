@@ -245,20 +245,69 @@ todos.forEach(function (todo, i, myTodos) {
   length: 3
 });
 
-
-
 // map() - Loop through and create new array
+// kayak for each tapi bedanya hasilnya langsung jadi Array
 const todoTextArray = todos.map(function (todo) {
   return todo.text;
 });
 console.log(todoTextArray);// ["Take out Trash", "Dinner with wife", "Meeting with boss"]
 
+// contoh map arrow function:
+// contoh bikin akar dari ages
+const ageakar = ages.map(age => Math.sqrt(age));
+console.log(ageakar);
+// contoh bikin doble dari ages
+const agedouble = ages.map(age => age * 2);
+console.log(agedouble);
+
+// contoh map dari map // akar dari ages dikali dua
+const ageMap = ages
+  .map(age => Math.sqrt(age))
+  .map(age => age * 2);
+
+
 // filter() - Returns array based on condition
+// format:
+// <array>.filter(<parameter>, <index>, <wholearray>) => <parameter>.<category> === <'Retail'>);
+
+// mensortir umur 21 ke atas:
+// cara biasa tanpa filter
+let canDrink = [];
+for (let i = 0; i < ages.length; i++) {
+  if (ages[i] >= 21) {
+    canDrink.push(ages[i]);
+  }
+}
+console.log(canDrink);//[33, 54, 21, 44, 61, 45, 25, 64, 32]
+// atau menggunakan filter
+const canDrink = ages.filter(function (age) {
+  if (age >= 21) {
+    return true;
+  }
+})
+console.log(canDrink);//[33, 54, 21, 44, 61, 45, 25, 64, 32]
+// atau arrow function
+const canDrink = ages.filter(age => age >= 21); // kalau parameter filter cuma satu maka tidak perlu (age) => age....
+console.log(canDrink);//[33, 54, 21, 44, 61, 45, 25, 64, 32]
+
+// contoh lain 
+// choose company retail only
+const companyRetail = companies.filter(retail => retail.category === 'Retail');
+console.log(companyRetail);
+
+// contoh lain menggunakan 2 if condition
+
+// Get 80s companies
+
+const eightiesCompanies = companies.filter(company => (company.start >= 1980 && company.start < 1990));
+console.log(eightiesCompanies);
+
 const todo1 = todos.filter(function (todo) {
   // Return only todos where id is 1
   return todo.id === 1;
 });
 console.log(todo1[0].text);//Take out trash
+
 
 //chained filter and map
 const todo2 = todos.filter(function (todo) {
@@ -267,6 +316,64 @@ const todo2 = todos.filter(function (todo) {
   return todo.text;
 });
 console.log(todo2);// ['Meeting with boss']
+
+// Sort 
+// mengurutkan dan hasilnya dijadikan array
+// Sort companies by start year
+
+const sortedCompanies = companies.sort(function (c1, c2) {
+  if (c1.start > c2.start) {
+    return 1;
+  } else {
+    return -1;
+  }
+});
+console.log(sortedCompanies)// [...]   // array dengan isinya Companies yang diurutkan berdasarkan tahun berdirinya
+// atau pendeknya:
+const sortedCompanies = companies.sort((a, b) => (a.start > b.start ? 1 : -1));
+// penjelasan ternery operator: ? = return,  : = else
+
+const sortAges = ages.sort();
+console.log(sortAges);// Ini langsung sort tapi hanya melihat angka pertamanya, jadi angka 2 itu ditaroh setelah 19
+// solusinya:
+const sortAges = ages.sort((a, b => a - b));
+console.log(sortAges);// sort dengan sempurna
+// kalau mau sebaliknya
+const sortAges = ages.sort((a, b => b - a));
+console.log(sortAges);// dibalik dari besar ke kecil
+
+// reduce
+
+let ageSum = 0;
+for (let i = 0; i < ages.length; i++) {
+  ageSum += ages[i];
+};
+console.log(ageSum);//460  // jumlah seluruh Array
+// atau bisa juga pakai reduce
+const ageSum = ages.reduce(function (total, age) {
+  return total + age;
+}, 0);
+console.log(ageSum);//460  // jumlah seluruh Array
+
+// atau yang pendek reduce + arrow function
+const ageSum = ages.reduce((total, age) => total + age, 0);//460  // jumlah seluruh Array
+
+// Contoh lainnya
+const totalYears = companies.reduce(function (total, company) {
+  return total + (company.end - company.start);
+}, 0);//118   // jumlah umur perusahaan 
+// atau
+const totalYears = companies.reduce((total, company) => total + (company.end - company.start), 0);//118   // jumlah umur perusahaan 
+
+// Combine Methods
+
+const combined = ages
+  .map(age => age * 2)
+  .filter(age => age >= 40)
+  .sort((a, b) => a - b)
+  .reduce((a, b) => a + b, 0);
+
+console.log(combined);//798
 
 // CONDITIONALS
 
@@ -322,6 +429,7 @@ function greet(greeting = 'Hello', name) {
 
 
 // ARROW FUNCTIONS
+// kalau parameter hanya satu maka tidak membutuhkan parentheses contoh (num => num*2)
 const addNums = (num1 = 1, num2 = 3) => {
   return num1 + num2;
 }
