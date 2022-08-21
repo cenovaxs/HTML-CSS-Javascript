@@ -80,6 +80,13 @@ courses[0] = 'HTML';
 courses[1] = 'CSS';
 courses[2] = 'JS';
 
+// Kalau kita langsung longkap
+courses[6] = 'Python'
+// maka akan ada 3 undefined di courses[3],courses[4],courses[5]
+
+// membuang isi dari array adalah dgn undefined karena undefined = kosong dalam javascript
+courses[0] = undefined
+
 // lenght array
 console.log(courses.length);
 
@@ -89,19 +96,35 @@ console.log(fruits[1]);
 // Add value
 fruits[4] = 'blueberries';
 
-// Add value using push() // value akan berada di nomor terakhir
+// Join // mengubah array menjadi string
+fruits.join(); //apples,oranges,pears,grapes   // secara default menggunakan koma
+fruits.join('-'); //apples-oranges-pears-grapes     //bisa diganti separator sesuai keinginan
+
+// Add value using push() // value akan berada di akhir array
 fruits.push('strawberries');
+fruits.push('strawberries', 'bananas');// untuk menambahkan multiple
 
 // Add to beginning
 fruits.unshift('mangos');
 
+// Remove first value
+fruits.unshift();// mangos hilang
+
 // Remove last value
 fruits.pop();
 
-// // Check if array
+// Splice // buat hapus atau nambah ditengah
+// splice(indexAwal, mauDihapusBerapa, elemenBaru1, elemenBaru2,...)
+fruits.splice(2, 1, "durian", "papaya");
+
+// Slice // buat ambil sebagian array dan buat menjadi array baru
+// slice(indexAwal,indexAkhir);
+var fruits2 = fruits.slice(1, 3);// mengambil index 1 sampai 2, index akhir tidak diambil
+
+// Check if array
 console.log(Array.isArray(fruits));//true
 
-// // Get index
+// Get index
 console.log(fruits.indexOf('oranges')); // sebutkan orange itu urutan ke berapa dalam array
 
 // Concat / Join Array / gabungin 2 array
@@ -279,7 +302,12 @@ for (let i = 0; i < ages.length; i++) {
   }
 }
 console.log(canDrink);//[33, 54, 21, 44, 61, 45, 25, 64, 32]
-// atau menggunakan filter
+// atau menggunakan filter cara 1
+const canDrink = ages.filter(function (age) {
+  return age >= 21;
+})
+console.log(canDrink);//[33, 54, 21, 44, 61, 45, 25, 64, 32]
+// atau menggunakan filter cara 2
 const canDrink = ages.filter(function (age) {
   if (age >= 21) {
     return true;
@@ -316,6 +344,12 @@ const todo2 = todos.filter(function (todo) {
   return todo.text;
 });
 console.log(todo2);// ['Meeting with boss']
+
+// find   // kyk filter tapi berhenti di kalau true
+const canDrink = ages.find(function (age) {
+  return age >= 21;
+})
+console.log(canDrink);//33
 
 // Sort 
 // mengurutkan dan hasilnya dijadikan array

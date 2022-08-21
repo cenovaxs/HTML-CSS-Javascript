@@ -57,4 +57,11 @@ const todoTextArray = ages.map(function (todo1, todo2) {
     if (todo1 > todo2) { return 1; } else { return -1; }
 
 });
-console.log(todoTextArray)
+console.log(todoTextArray);
+
+console.log(fruits.slice(1, 1));
+
+const canDrink = ages.filter(function (age) {
+    return age >= 21;
+})
+console.log(canDrink)
