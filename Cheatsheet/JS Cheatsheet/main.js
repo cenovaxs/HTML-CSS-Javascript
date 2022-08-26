@@ -1,5 +1,13 @@
 // ATTENTION: THIS IS CODE FROM THE YOUTUBE CRASH COURSE. IT IS NOT MEANT TO RUN, IT IS JUST FOR LEARNING PURPOSES //
 
+
+// untuk cek object punya method apa saja :
+// console.log(object.prototype)
+// contoh:
+console.log(Array.prototype);
+console.log(Object.prototype);
+console.log(Number.prototype);
+
 // LOGGING OUTPUT
 // Alert
 alert('Hello World'); // Do not use for debugging. Stops script and only strings
@@ -500,6 +508,41 @@ console.log(d.getMinutes());
 
 
 // OOP
+// function declaration // cara lama
+function mahasiswa(nama, NIP) {
+  var mhs = {};
+  mhs.nama = nama;
+  mhs.NIP = NIP;
+  return mhs;
+};
+var siswa1 = mahasiswa('Putri', 231421566);
+console.log(siswa1);//{nama: 'Putri, NIP : 231421566}
+
+// Object Literal
+
+function Mahasiswa(nama, energy) {
+  let mahasiswa = Object.create(methodmahasiswa); // dengan Object.create() maka method bisa diluar function Mahasiswa tanpa harus dipropertikan di dalam function, jadi tidak dipanggil berulang2 (lebih efektif)
+  mahasiswa.nama = nama;
+  mahasiswa.energy = energy;
+  // method bisa disini tapi dalam hal ini methodnya diluar
+  return mahasiswa;
+}
+const methodmahasiswa = {
+  makan: function (porsi) {
+    this.energy += porsi;
+    console.log(`Halo ${this.nama}, selamat makan!`);
+  }
+  tidur: function (jam) {
+    this.energy += jam * 2;
+    console.log(`Halo ${this.nama}, good night!`);
+  }
+  belajar: function (jam) {
+    this.energy -= jam;
+    console.log(`Halo ${this.nama}, selamat belajar!`);
+  }
+}
+
+
 
 // Constructor Function
 function Person(firstName, lastName, dob) {
@@ -525,7 +568,7 @@ function bornyear() {
   return 2022 - this.age;
 }
 
-// Prototype
+// Prototype buka youtube sandika galih tentang prototype kalau lupa
 // prototype digunakan supaya function yang tidak diperlukan tidak muncul setiap function Person dipanggil karena mungkin gak diperlukan dan malah membocorkan data yang tidak diperlukan
 // Di ES6 Prototype digantikan oleh Classes
 

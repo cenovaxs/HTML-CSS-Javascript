@@ -65,3 +65,13 @@ const canDrink = ages.filter(function (age) {
     return age >= 21;
 })
 console.log(canDrink)
+
+function mahasiswa(nama, NIP) {
+    var mhs = {};
+    mhs.nama = nama;
+    mhs.NIP = NIP;
+    return mhs;
+};
+
+var siswa1 = mahasiswa('Putri', 231421566);
+console.log(siswa1);
