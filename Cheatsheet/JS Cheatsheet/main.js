@@ -14,6 +14,7 @@ alert('Hello World'); // Do not use for debugging. Stops script and only strings
 console.log('Hello World'); // tulisan muncul di konsole
 console.error('This is an error'); // tulisan muncul di konsole sebagai error (x warna merah)
 console.warn('This is a warning'); // tulisan muncul di konsole sebagai warn (! warna kuning)
+console.table(todos) // tulisan muncul di konsole dalam bentuk tabel
 
 // Prompt input
 var user = prompt("Please enter your name");
@@ -505,11 +506,19 @@ todos.forEach((todo) => console.log(todo));//{id: 1, text: 'Take out trash', isC
 
 // Map arrow function
 let anothertodo = todos.map(
-  jumlahhuruf => ({ kegiatan: kegiatan, })
-)
+  nama => ({ kegiatan: nama.id, rincian: nama.text }) // untuk membuat hasil dalam bentuk array {} harus ditutup dengan () karena kalau tidak arrow function akan mengira kita mau buat function 
+);
+console.log(anothertodo);
 
 const greet = (greeting = 'Hello', name = 'There') => `${greeting} ${name}`;
 console.log(greet('Hi'));
+
+
+// Kalau variabel dan nama sama maka tidak perlu buat nama: nama, cukup dengan nama saja seperti dibawah
+let anothertodo = todos.map(
+  nama => ({ nama, rincian: nama.text })
+);
+console.table(anothertodo);
 
 // Date Object
 // jalankan setelah 3 detik

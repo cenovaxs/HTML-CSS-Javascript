@@ -53,25 +53,8 @@ const companies = [
 
 const ages = [33, 12, 20, 16, 5, 54, 21, 44, 61, 13, 15, 45, 25, 64, 32];
 
-const todoTextArray = ages.map(function (todo1, todo2) {
-    if (todo1 > todo2) { return 1; } else { return -1; }
-
-});
-console.log(todoTextArray);
-
-console.log(fruits.slice(1, 1));
-
-const canDrink = ages.filter(function (age) {
-    return age >= 21;
-})
-console.log(canDrink)
-
-function mahasiswa(nama, NIP) {
-    var mhs = {};
-    mhs.nama = nama;
-    mhs.NIP = NIP;
-    return mhs;
-};
-
-var siswa1 = mahasiswa('Putri', 231421566);
-console.log(siswa1);
+let anothertodo = todos.map(
+    nama => ({ nama, rincian: nama.text })
+);
+console.table(anothertodo);
+// console.table("hello world")
