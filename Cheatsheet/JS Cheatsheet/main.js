@@ -448,6 +448,13 @@ const z = color === 'red' ? 10 : 20;
 
 
 // FUNCTIONS
+// Function Declaration
+function namafunction(argument1, argument2) {
+  alert(`${argument1} dan ${argument2}`);
+};
+
+namafunction(tes, lagi);
+
 function addNums(num1, num2) {
   console.log(num1 + num2);
 }
@@ -469,15 +476,21 @@ function greet(greeting = 'Hello', name) {
   }
 }
 
+// Function Expression
+let = panggilfunction = function (argument1, argument2) {
+  alert(`${argument1} dan ${argument2}`);
+};
+
 
 // ARROW FUNCTIONS
-// kalau parameter hanya satu maka tidak membutuhkan parentheses contoh (num => num*2)
+// kalau argumen hanya satu maka tidak membutuhkan parentheses contoh (num => num*2)
+// kalau argumen tidak ada maka harus pakai parentheses kosong contoh () => 4+6
 const addNums = (num1 = 1, num2 = 3) => {
   return num1 + num2;
 }
 console.log(addNums(5));//8
 
-// atau yang lebih ringkas tanpa curly braces dan return tapi hasilnya sama
+// Implicit Return atau yang lebih ringkas tanpa curly braces dan return tapi hasilnya sama
 const addNums = (num1 = 1, num2 = 3) => num1 + num2;
 console.log(addNums(5));//8
 
@@ -485,10 +498,15 @@ console.log(addNums(5));//8
 const addNums = (num1 = 1, num2 = 3) => console.log(num1 + num2);
 addNums(5);//8
 
-//for each arrow function
+// for each arrow function
 todos.forEach((todo) => console.log(todo));//{id: 1, text: 'Take out trash', isComplete: false}
 //{id: 2, text: 'Dinner with wife', isComplete: false}
 //{id: 3, text: 'Meeting with boss', isComplete: true}
+
+// Map arrow function
+let anothertodo = todos.map(
+  jumlahhuruf => ({ kegiatan: kegiatan, })
+)
 
 const greet = (greeting = 'Hello', name = 'There') => `${greeting} ${name}`;
 console.log(greet('Hi'));
