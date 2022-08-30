@@ -139,6 +139,16 @@ console.log(fruits.indexOf('oranges')); // sebutkan orange itu urutan ke berapa 
 // Concat / Join Array / gabungin 2 array
 var concat = fruits.concat(courses);
 
+// Spread operator cara lain untuk memanipulasi array
+
+const mhs = ['Luna', 'Lina', 'Lion']
+console.log(...mhs); // Luna Lina Lion
+console.log(...mhs[0]); // L u n a
+const orang = ['Dread', 'Drovi', 'Davi']
+console.log([...mhs, ...orang])// ['Luna', 'Lina', 'Lion', 'Dread','Drovi','Davi'] // kyk concat
+console.log([...mhs, 'Ajis', ...orang]) // ['Luna', 'Lina', 'Lion', 'Ajis', 'Dread','Drovi','Davi'] bedanya ini lebih mudah dalam mengeditnya
+const mhs1 = [...mhs] // dengan ini apabila kita mengganti mhs1 tidak mengganggu mhs
+
 // Associative Arrays
 var person = [];
 person["name"] = 'Kohn';
@@ -476,6 +486,8 @@ function greet(greeting = 'Hello', name) {
     return `${greeting} ${name}`;
   }
 }
+
+// Arguments // cek youtube web programming unpas tentang Execution context, Hoisting & Scope menit 22:10z  
 
 // Function Expression
 let = panggilfunction = function (argument1, argument2) {
