@@ -53,9 +53,10 @@ const companies = [
 
 const ages = [33, 12, 20, 16, 5, 54, 21, 44, 61, 13, 15, 45, 25, 64, 32];
 
-
-let { nama, umur } = {// argument {nama,umur} harus sama dengan property nama: umur: gak boleh asal
-    nama: "Dika",
+let mhs = {
+    nama: 'Sandhika Galih',
     umur: 33
-}
-console.log(nama);
+};
+
+let { nama: n, umur: u } = mhs;
+console.log(n, u)

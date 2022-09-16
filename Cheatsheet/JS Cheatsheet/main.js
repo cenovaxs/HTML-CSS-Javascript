@@ -149,11 +149,26 @@ console.log([...mhs, ...orang])// ['Luna', 'Lina', 'Lion', 'Dread','Drovi','Davi
 console.log([...mhs, 'Ajis', ...orang]) // ['Luna', 'Lina', 'Lion', 'Ajis', 'Dread','Drovi','Davi'] bedanya ini lebih mudah dalam mengeditnya
 let mhs1 = [...mhs] // dengan ini apabila kita mengganti mhs1 tidak mengganggu mhs
 
-// Destructuring assignment
+// Destructuring assignment ( bisa dicek youtube javascript lanjutan https://youtu.be/7f11bDxZSP0)
 // untuk mengassign variable dengan nama pilihan
 let [nama, , telp] = ['sandi', 'Jl kecubung', 08988555222]; // kalau mau skip bisa kasih koma kosong
 console.log(nama);// 'sandi'
 console.log(telp);// 08988555222
+
+// bisa swap items
+
+let a = 1;
+let b = 2;
+
+[a, b] = [b, a]
+console.log(b)// 1
+
+// return value pada function
+function coba() {
+  return [1, 2];
+}
+let [a, b] = coba();
+console.log(b)// 2
 
 // Rest parameter
 // gunakan []
@@ -161,19 +176,60 @@ let [a, ...values] = [1, 2, 3, 4, 5] // sisanya masuk ke parameter values sebaga
 console.log(a);// 1
 console.log(values)// [2,3,4,5]
 
-// Destructuring Object ( bisa dicek youtube javascript lanjutan https://youtu.be/7f11bDxZSP0)
-// gunakan {}
+// menggunakan {}
 let { nama, umur } = {// argument {nama,umur} harus sama dengan property nama: umur: gak boleh asal
   nama: "Dika",
   umur: 33
-}
-  // ATAU tanpa let pakai ()
-  ({ nama, umur } = {// argument {nama,umur} harus sama dengan property nama: umur: gak boleh asal
-    nama: "Dika",
-    umur: 33
-  })
+};
+console.log(umur);// 33
+// ATAU tanpa let pakai ()
+({ nama, umur } = {// argument {nama,umur} harus sama dengan property nama: umur: gak boleh asal
+  nama: "Dika",
+  umur: 33
+});
+console.log(umur);// 33
 
-// bisa di skip
+// Assign ke variable baru
+let mhs = {
+  nama: 'Sandhika Galih',
+  umur: 33
+};
+
+let { nama: n, umur: u } = mhs;
+console.log(n, u)// Sandhika Galih 33
+console.log(nama)// error karena variabel sudah diganti ke n
+// default value
+let mhs = {
+  nama: 'Sandhika Galih',
+  umur: 33 // email sengaja tidak di define
+};
+
+let { nama, umur, email = 'google.com' } = mhs; // kalau email tidak didefine maka akan default value
+console.log(email)// google.com
+
+// bisa digabungkan assign variable dan default value
+
+let mhs = {
+  nama: 'Sandhika Galih',
+  umur: 33
+};
+
+let { nama: n, umur: u, email: e = 'google.com' } = mhs;
+console.log(e)// google.com
+
+// contoh nyata 
+// Mengambil field pada object , setelah dikirim sebagai parameter untuk function
+let mhs = {
+  id: 123,
+  nama: "Sandi",
+  umur: 33
+}
+
+function getid({ id }) { // ini bakal langsung mengambil id saja
+  return id;
+}
+console.log(getid(mhs)); // 123
+
 
 // Associative Arrays
 var person = [];
