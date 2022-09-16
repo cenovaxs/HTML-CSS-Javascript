@@ -521,6 +521,7 @@ let = panggilfunction = function (argument1, argument2) {
 
 
 // ARROW FUNCTIONS
+// arrow functions tidak bisa digunakan dalam Constructor 
 // kalau argumen hanya satu maka tidak membutuhkan parentheses contoh (num => num*2)
 // kalau argumen tidak ada maka harus pakai parentheses kosong contoh () => 4+6
 const addNums = (num1 = 1, num2 = 3) => {
