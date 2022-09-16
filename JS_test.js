@@ -53,8 +53,9 @@ const companies = [
 
 const ages = [33, 12, 20, 16, 5, 54, 21, 44, 61, 13, 15, 45, 25, 64, 32];
 
-let anothertodo = todos.map(
-    nama => ({ nama, rincian: nama.text })
-);
-console.table(anothertodo);
-// console.table("hello world")
+
+let { nama, umur } = {// argument {nama,umur} harus sama dengan property nama: umur: gak boleh asal
+    nama: "Dika",
+    umur: 33
+}
+console.log(nama);

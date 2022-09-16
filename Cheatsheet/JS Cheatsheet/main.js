@@ -161,7 +161,7 @@ let [a, ...values] = [1, 2, 3, 4, 5] // sisanya masuk ke parameter values sebaga
 console.log(a);// 1
 console.log(values)// [2,3,4,5]
 
-// Destructuring Object
+// Destructuring Object ( bisa dicek youtube javascript lanjutan https://youtu.be/7f11bDxZSP0)
 // gunakan {}
 let { nama, umur } = {// argument {nama,umur} harus sama dengan property nama: umur: gak boleh asal
   nama: "Dika",
@@ -173,6 +173,7 @@ let { nama, umur } = {// argument {nama,umur} harus sama dengan property nama: u
     umur: 33
   })
 
+// bisa di skip
 
 // Associative Arrays
 var person = [];
