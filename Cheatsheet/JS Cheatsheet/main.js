@@ -141,13 +141,38 @@ var concat = fruits.concat(courses);
 
 // Spread operator cara lain untuk memanipulasi array
 
-const mhs = ['Luna', 'Lina', 'Lion']
+let mhs = ['Luna', 'Lina', 'Lion']
 console.log(...mhs); // Luna Lina Lion
 console.log(...mhs[0]); // L u n a
-const orang = ['Dread', 'Drovi', 'Davi']
+let orang = ['Dread', 'Drovi', 'Davi']
 console.log([...mhs, ...orang])// ['Luna', 'Lina', 'Lion', 'Dread','Drovi','Davi'] // kyk concat
 console.log([...mhs, 'Ajis', ...orang]) // ['Luna', 'Lina', 'Lion', 'Ajis', 'Dread','Drovi','Davi'] bedanya ini lebih mudah dalam mengeditnya
-const mhs1 = [...mhs] // dengan ini apabila kita mengganti mhs1 tidak mengganggu mhs
+let mhs1 = [...mhs] // dengan ini apabila kita mengganti mhs1 tidak mengganggu mhs
+
+// Destructuring assignment
+// untuk mengassign variable dengan nama pilihan
+let [nama, , telp] = ['sandi', 'Jl kecubung', 08988555222]; // kalau mau skip bisa kasih koma kosong
+console.log(nama);// 'sandi'
+console.log(telp);// 08988555222
+
+// Rest parameter
+// gunakan []
+let [a, ...values] = [1, 2, 3, 4, 5] // sisanya masuk ke parameter values sebagai array
+console.log(a);// 1
+console.log(values)// [2,3,4,5]
+
+// Destructuring Object
+// gunakan {}
+let { nama, umur } = {// argument {nama,umur} harus sama dengan property nama: umur: gak boleh asal
+  nama: "Dika",
+  umur: 33
+}
+  // ATAU tanpa let pakai ()
+  ({ nama, umur } = {// argument {nama,umur} harus sama dengan property nama: umur: gak boleh asal
+    nama: "Dika",
+    umur: 33
+  })
+
 
 // Associative Arrays
 var person = [];
