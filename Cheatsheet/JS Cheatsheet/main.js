@@ -230,6 +230,39 @@ function getid({ id }) { // ini bakal langsung mengambil id saja
 }
 console.log(getid(mhs)); // 123
 
+// Destructuring Function
+// menamai bagian dari fungsi
+function kalkulasi(a, b) {
+  return [a + b, a - b, a * b, a / c];
+}
+let [tambah, kurang, kali, bagi = "tidak ada" /* yang tidak ada itu default value */] = kalkulasi(2, 3);
+console.log(bagi)//0.66666666
+
+// contoh kalau ngak mau pakai Destructuring
+let tambah = kalkulasi(3, 4)[0];
+let kurang = kalkulasi(3, 4)[1];
+
+// bisa juga menggunakan object {}
+function kalkulasi(a, b) {
+  return { tambah: a + b, kurang: a - b, kali: a * b, bagi: a / c };
+}
+let { kurang, tambah, bagi, kali }/* bedanya sama array [] kalau object {} dia gak harus urut*/ = kalkulasi(2, 3);
+console.log(bagi)//0.66666666
+
+// contoh lain destructuring arguments
+let mhs1 = {
+  nama: "Sandhika",
+  umur: 33,
+  nilai: {
+    tugas: 80,
+    uts: 90,
+    uas: 100
+  }
+};
+function cetakmhs({ nama, umur, nilai: { tugas, uts, uas } }) {
+  return `Halo nama saya ${nama} umur saya ${umur}, nilai uas saya ${uas}`
+};
+console.log(cetakmhs(mhs1));//
 
 // Associative Arrays
 var person = [];

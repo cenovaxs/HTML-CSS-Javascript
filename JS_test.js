@@ -53,10 +53,16 @@ const companies = [
 
 const ages = [33, 12, 20, 16, 5, 54, 21, 44, 61, 13, 15, 45, 25, 64, 32];
 
-let mhs = {
-    nama: 'Sandhika Galih',
-    umur: 33
-};
-
-let { nama: n, umur: u } = mhs;
-console.log(n, u)
+let mhs1 = {
+    nama: "Sandhika",
+    umur: 33,
+    nilai: {
+        tugas: 80,
+        uts: 90,
+        uas: 100
+    }
+}
+function cetakmhs({ nama, umur, nilai: { tugas, uts, uas } }) {
+    return `Halo nama saya ${nama} umur saya ${umur}, nilai uas saya ${uas}`
+}
+console.log(cetakmhs(mhs1))
