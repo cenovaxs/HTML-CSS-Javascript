@@ -14,15 +14,33 @@ let stocks = {
 };
 let is_shop_open = true;
 
-let order = (time, work) => {
+function time(ms) {
     return new Promise((resolve, reject) => {
         if (is_shop_open) {
-            setTimeout(() => {
-                resolve(work())
-            }, time)
-
+            setTimeout(resolve, ms);
         }
-        else reject(console.log('our shop is closed'))
-    })
+        else {
+            reject(console.log(`Shop is closed`));
+        }
+    });
 }
-order(2000, () => console.log(`${stocks.fruits[0]}`))
+
+async function kitchen() {
+    try {
+        await time(2000)
+        console.log(`${stocks.fruits[0]}`);
+        await time(0000)
+        console.log(`start the production`)
+        await time(2000)
+        console.log(`cut the fruit`)
+        await time(1000)
+        console.log(`${stocks.liquid[0]} and ${stocks.liquid[1]} is added `)
+    }
+    catch (error) {
+        console.log("customer left", error)
+    }
+    finally {
+        console.log("day ended, shop is closed")
+    }
+}
+kitchen();
