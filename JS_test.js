@@ -6,63 +6,23 @@ function runEvent(e) {
 }
 console.log(window);
 
-const numbers = [1, 2, 3, 4, 5];
-const fruits = ['apples', 'oranges', 'pears', 'grapes'];
-var concat = fruits.concat(numbers);
-console.log(concat);
+let stocks = {
+    fruits: ['pinapple', 'manggo', 'banana', 'orange'],
+    liquid: ['ice', 'water'],
+    holder: ['cup', 'stick', 'cone'],
+    toppings: ['chocolate', 'peanuts', 'marhsmellow']
+};
+let is_shop_open = true;
 
-var person = [];
-person["name"] = 'Kohn';
-person["age"] = 46;
-// console.log(person['age']);//46
-// console.log(person.age);//46
-const todos = [
-    {
-        id: 1,
-        text: 'Take out trash',
-        isComplete: false
-    },
-    {
-        id: 2,
-        text: 'Dinner with wife',
-        isComplete: false
-    },
-    {
-        id: 3,
-        text: 'Meeting with boss',
-        isComplete: true
-    }
-];
+let order = (time, work) => {
+    return new Promise((resolve, reject) => {
+        if (is_shop_open) {
+            setTimeout(() => {
+                resolve(work())
+            }, time)
 
-// todos.forEach(function (todo, i, myTodos) {
-//     console.log(`${i + 1}: ${todo.text}`);
-//     console.log(myTodos);
-// });
-
-const companies = [
-    { name: "Company One", category: "Finance", start: 1981, end: 2004 },
-    { name: "Company Two", category: "Retail", start: 1992, end: 2008 },
-    { name: "Company Three", category: "Auto", start: 1999, end: 2007 },
-    { name: "Company Four", category: "Retail", start: 1989, end: 2010 },
-    { name: "Company Five", category: "Technology", start: 2009, end: 2014 },
-    { name: "Company Six", category: "Finance", start: 1987, end: 2010 },
-    { name: "Company Seven", category: "Auto", start: 1986, end: 1996 },
-    { name: "Company Eight", category: "Technology", start: 2011, end: 2016 },
-    { name: "Company Nine", category: "Retail", start: 1981, end: 1989 }
-];
-
-const ages = [33, 12, 20, 16, 5, 54, 21, 44, 61, 13, 15, 45, 25, 64, 32];
-
-let mhs1 = {
-    nama: "Sandhika",
-    umur: 33,
-    nilai: {
-        tugas: 80,
-        uts: 90,
-        uas: 100
-    }
+        }
+        else reject(console.log('our shop is closed'))
+    })
 }
-function cetakmhs({ nama, umur, nilai: { tugas, uts, uas } }) {
-    return `Halo nama saya ${nama} umur saya ${umur}, nilai uas saya ${uas}`
-}
-console.log(cetakmhs(mhs1))
+order(2000, () => console.log(`${stocks.fruits[0]}`))

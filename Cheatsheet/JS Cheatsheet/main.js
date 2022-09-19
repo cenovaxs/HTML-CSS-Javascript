@@ -876,3 +876,25 @@ console.log(Array.from('foo'));
 // expected output: Array ["f", "o", "o"]
 console.log(Array.from([1, 2, 3], x => x + x));
 // expected output: Array [2, 4, 6]
+
+// Asyncronous JS, Promise, .then
+let stocks = {
+  fruits: ['pinapple', 'manggo', 'banana', 'orange'],
+  liquid: ['ice', 'water'],
+  holder: ['cup', 'stick', 'cone'],
+  toppings: ['chocolate', 'peanuts', 'marhsmellow']
+};
+let is_shop_open = true;
+
+let order = (time, work) => {
+  return new Promise((resolve, reject) => {
+    if (is_shop_open) {
+      setTimeout(() => {
+        resolve(work())
+      }, time)
+
+    }
+    else reject(console.log('our shop is closed'))
+  })
+}
+order(2000, () => console.log(`${stocks.fruits[0]}`))
