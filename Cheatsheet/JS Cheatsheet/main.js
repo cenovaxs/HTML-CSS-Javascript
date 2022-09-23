@@ -45,6 +45,11 @@ const x = null;
 const y = undefined;
 let z; // undefined
 
+// mengubah data types
+parseFloat("10"); // ubah menjadi float
+parseInt('20'); // ubah menjadi Int
+String(30); // ubah menjadi String
+
 // Check type
 console.log(typeof z); // undefined
 
