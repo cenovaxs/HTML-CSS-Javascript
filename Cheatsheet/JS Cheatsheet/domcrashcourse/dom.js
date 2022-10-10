@@ -17,6 +17,7 @@ console.log(document.forms[0]); // tampilin forms dalam hal ini yang pertama
 console.log(document.links); // tampilin links
 console.log(document.images); // tampilin images
 
+
 // GETELEMENTBYID // single // hanya bisa select single element kalau ada dua dia hanya memilih yang pertama
 console.log(document.getElementById('header-title'));
 var headerTitle = document.getElementById('header-title'); // dimasukkan jadi variable biar mudah lebih pendek
@@ -202,6 +203,7 @@ function buttonClick(e) {
   console.log(e.altKey); // True apabila alt sedang dipencet saat event listener triggered
   console.log(e.ctrlKey); // True apabila ctr sedang dipencet saat event listener triggered
   console.log(e.shiftKey); // True apabila shift sedang dipencet saat event listener triggered
+  console.log(e.value); // value menampilkan apapun hasil input dari user
 }
 
 var button = document.getElementById('button');
